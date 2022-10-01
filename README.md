@@ -1,4 +1,4 @@
-# mycof 仓库
+# my fixlt conf 仓库
 
 # FixIt Theme | Hugo
 
