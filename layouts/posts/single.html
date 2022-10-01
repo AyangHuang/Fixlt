@@ -71,9 +71,9 @@
           {{- dict "Class" "fa-solid fa-pencil-alt fa-fw" | partial "plugin/icon.html" }} {{ T "wordCount" .WordCount -}}
         </span>&nbsp;
         {{- /* NO_SPACING */ -}}
-        <span>
+        <!-- <span>
           {{- dict "Class" "fa-regular fa-clock fa-fw" | partial "plugin/icon.html" }} {{ T "readingTime" .ReadingTime -}}
-        </span>&nbsp;
+        </span>&nbsp; -->
 
         {{- /* If the article expires, close the comment or not */ -}}
         {{- $expirationReminder := $params.expirationReminder | default dict -}}

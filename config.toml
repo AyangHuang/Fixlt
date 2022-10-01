@@ -11,6 +11,27 @@
 
 [menu]
   [[menu.main]]
+    identifier = "home"
+    # 父级菜单项的标识符 (identifier)
+    parent = ""
+    pre = ""
+    post = ""
+    name = "Home"
+    url = "/"
+    # 当你将鼠标悬停在此菜单链接上时，将显示的标题
+    title = ""
+    weight = 1
+    # 向菜单项添加用户定义的内容，可有可无
+    [menu.main.params]
+      # 添加 CSS 类到菜单项
+      # class = 'text-center'
+      # 是否为草稿菜单，类似草稿页面
+      # draft = false
+      # FixIt 0.2.16 | 新增 添加 fontawesome 图标到菜单项
+      # icon = "fa-solid fa-archive"
+      # FixIt 0.2.16 | 新增 设置菜单项类型，可选值：["mobile", "desktop"]
+      # type = ""
+  [[menu.main]]
     identifier = "posts"
     # you can add extra information before the name (HTML format is supported), such as icons
     pre = ""
@@ -20,7 +41,7 @@
     url = "/posts/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 1
+    weight = 2
   [[menu.main]]
     identifier = "categories"
     pre = ""
@@ -28,7 +49,7 @@
     name = "Categories"
     url = "/categories/"
     title = ""
-    weight = 2
+    weight = 3
   [[menu.main]]
     identifier = "tags"
     pre = ""
@@ -36,8 +57,15 @@
     name = "Tags"
     url = "/tags/"
     title = ""
-    weight = 3
-
+    weight = 4
+  [[menu.main]]
+    identifier = "friends"
+    pre = ""
+    post = ""
+    name = "Friends"
+    url = "/friends/"
+    title = ""
+    weight = 5
 # -------------------------------------------------------------------------------------
 # Theme Core Configuration Settings
 # -------------------------------------------------------------------------------------
@@ -46,7 +74,7 @@
   # FixIt 0.2.15 | CHANGED FixIt theme version
   version = "0.2.X" # e.g. "0.2.X", "0.2.15", "v0.2.15" etc.
   # site description
-  description = "This is my new Hugo FixIt site"
+  description = ""
   # site keywords
   keywords = ["Hugo", "FixIt"]
   # site default theme ["light", "dark", "auto"]
@@ -69,11 +97,13 @@
   disableThemeInject = false
   # FixIt 0.2.16 | NEW Auto Bookmark Support
   # If true, save the reading progress when closing the page.
+  # 开启自动书签支持,如果为 true，则在关闭页面时保存阅读进度
   autoBookmark = false
 
   # FixIt 0.2.0 | NEW App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
+    # 当添加到 iOS 主屏幕或者 Android 启动器时的标题，覆盖默认标题
     title = "FixIt"
     # whether to omit favicon resource links
     noFavicon = false
@@ -92,6 +122,7 @@
   [params.search]
     enable = true
     # type of search engine ["lunr", "algolia"]
+    # algolia 需要同步index.json到 algolia 网站
     type = "lunr"
     # max index length of the chunked content
     contentLength = 4000
@@ -113,15 +144,18 @@
   # Header config
   [params.header]
     # FixIt 0.2.13 | CHANGED desktop header mode ["sticky", "normal", "auto"]
-    desktopMode = "sticky"
+    # 桌面端导航栏模式 ["sticky", "normal", "auto"]
+    desktopMode = "auto"
     # FixIt 0.2.13 | CHANGED mobile header mode ["sticky", "normal", "auto"]
     mobileMode = "auto"
     # FixIt 0.2.0 | NEW Header title config
     [params.header.title]
       # URL of the LOGO
-      logo = "/fixit.min.svg"
+      # 左上角logo
+      logo = ""
       # title name
-      name = "My New Hugo FixIt Site"
+      # 左上角名字
+      name = "Ayang's Blog"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -147,27 +181,33 @@
     # FixIt 0.2.0 | NEW whether to show the author
     author = true
     # Site creation year
-    since = 2021
+    # 网站创建时间
+    since = 2022
     # FixIt 0.2.14 | NEW Site creation time
     siteTime = "" # e.g. "2021-12-18T16:15:22+08:00"
     # FixIt 0.2.14 | NEW whether to show total word count of site content
     wordCount = true
     # FixIt 0.2.12 | NEW Public network security only in China (HTML format is supported)
-    gov = ""
+    # 公网安备信息，仅在中国使用（支持 HTML 格式）
+    # gov = "<a target='_blank' href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021102001594'style='display:inline-block;text-decoration:none;height:20px;line-height:20px;'><img src='/images/beian.png'style='float:left;' /><p style='float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;'>闽公网安备35021102001594号</p></a></div>"
+    gov = "<a target='_blank' href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021102001594'>闽公网安备35021102001594号</a>"
     # ICP info only in China (HTML format is supported)
-    icp = ""
+    # ICP 备案信息，仅在中国使用（支持 HTML 格式）
+    icp = "<a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2022116941号</a>"
     # license info (HTML format is supported)
     license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
   # FixIt 0.2.0 | NEW Section (all posts) page config
   [params.section]
     # special amount of posts in each section page
+    # section 页面每页显示文章数量
     paginate = 20
     # date format (month and day)
     dateFormat = "01-02"
     # amount of RSS pages
     rss = 10
     # FixIt 0.2.13 | NEW recently updated posts settings
+    # 最近更新文章设置
     [params.section.recentlyUpdated]
       enable = false
       rss = false
@@ -177,6 +217,7 @@
   # FixIt 0.2.0 | NEW List (category or tag) page config
   [params.list]
     # special amount of posts in each list page
+    # list 页面每页显示文章数量
     paginate = 20
     # date format (month and day)
     dateFormat = "01-02"
@@ -188,17 +229,23 @@
     # FixIt 0.2.0 | NEW amount of RSS pages
     rss = 10
     # Home page profile
+    # 主页显示的网站标题（支持 HTML 格式）
     [params.home.profile]
+      # 是否显示主页信息
       enable = true
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/fixit.min.svg"
+      # 主页显示的网站标题（支持 HTML 格式）
+      avatarURL = "/images/avatar.jpg"
       # FixIt 0.2.7 | CHANGED title shown in home page (HTML format is supported)
+      # 主页显示的网站标题（支持 HTML 格式
       title = ""
       # subtitle shown in home page
-      subtitle = "This is my new Hugo FixIt site"
+      # 主页显示的网站副标题
+      subtitle = "山在于高，水在于深。"
       # whether to use typeit animation for subtitle
+      # 是否为副标题显示打字机动画
       typeit = true
       # whether to show social links
       social = true
@@ -206,13 +253,16 @@
       disclaimer = ""
     # Home page posts
     [params.home.posts]
-      enable = true
+      # home 页面是否显示文章
+      enable = false
       # special amount of posts in each home posts page
+      # 主页每页显示文章数量
       paginate = 6
 
   # FixIt 0.2.16 | CHANGED Social config about the author
   [params.social]
-    GitHub = ""
+    # 作者的社交信息设置
+    GitHub = "AyangHuang"
     Linkedin = ""
     Twitter = ""
     Instagram = ""
@@ -295,10 +345,11 @@
     Feishu = ""
     TryHackMe = ""
     Phone = ""
-    Email = ""
+    Email = "ayanghuang.ink@qq.com"
     RSS = true
 
   # FixIt 0.2.0 | CHANGED Page config
+  # 文章页面配置
   [params.page]
     # FixIt 0.2.0 | NEW whether to hide a page from home page
     hiddenFromHomePage = false
@@ -307,7 +358,7 @@
     # FixIt 0.2.0 | NEW whether to enable twemoji
     twemoji = false
     # whether to enable lightgallery
-    lightgallery = false
+    lightgallery = true
     # FixIt 0.2.0 | NEW whether to enable the ruby extended syntax
     ruby = true
     # FixIt 0.2.0 | NEW whether to enable the fraction extended syntax
@@ -317,13 +368,15 @@
     # license info (HTML format is supported)
     license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
     # whether to show link to Raw Markdown content of the content
-    linkToMarkdown = true
+    # 是否显示原始 Markdown 文档内容的链接
+    linkToMarkdown = false
     # FixIt 0.2.4 | NEW whether to show the full text content in RSS
     rssFullText = false
     # FixIt 0.2.13 | NEW Page style ["narrow", "normal", "wide", ...]
-    pageStyle = "normal"
+    # 页面样式 ["narrow", "normal", "wide", ...]
+    pageStyle = "narrow"
     # FixIt 0.2.14 | NEW Gravatar is force-used as the author's avatar
-    gravatarForce = false
+    gravatarForce = true
     # FixIt 0.2.15 | NEW Repost config
     [params.page.repost]
       enable = false
@@ -331,14 +384,19 @@
     # FixIt 0.2.0 | NEW Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents
+      # 是否使用目录
       enable = true
       # FixIt 0.2.9 | NEW whether to keep the static table of the contents in front of the post
+      # 是否保持使用文章前面的静态目录
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
-      auto = true
+      # 是否使侧边目录自动折叠展开
+      auto = false
       # FixIt 0.2.13 | NEW position of TOC ["left", "right"]
+      # 目录位置 ["left", "right"]
       position = "right"
     # FixIt 0.2.13 | NEW Display a message at the beginning of an article to warn the reader that its content might be expired
+    # 在文章开头显示提示信息，提醒读者文章内容可能过时
     [params.page.expirationReminder]
       enable = false
       # Display the reminder if the last modified time is more than 90 days ago
@@ -367,8 +425,9 @@
       # FixIt 0.2.13 | NEW whether to show the edit button of the code block
       edit = true
       # the maximum number of lines of displayed code by default
-      maxShownLines = 10
+      maxShownLines = 20
     # FixIt 0.2.14 | NEW Post edit
+    # 文章编辑
     [params.page.edit]
       enable = false
       # FixIt 0.2.15 | CHANGED Link for fork & edit
@@ -392,8 +451,9 @@
       # whether to add FullscreenControl
       fullscreen = true
     # FixIt 0.2.0 | CHANGED social share links in post page
+    # 文章页面的分享信息设置
     [params.page.share]
-      enable = true
+      enable = false
       Twitter = true
       Facebook = true
       Linkedin = false
@@ -422,8 +482,9 @@
       Trello = false
       Mix = false
     # FixIt 0.2.15 | CHANGED Comment config
+    # 评论系统设置
     [params.page.comment]
-      enable = false
+      enable = true
       # FixIt 0.2.13 | NEW Artalk comment config (https://artalk.js.org/)
       [params.page.comment.artalk]
         enable = false
@@ -530,15 +591,15 @@
         lightgallery = false
       # FixIt 0.2.14 | NEW Giscus comments config
       [params.page.comment.giscus]
-        enable = false
-        repo = ""
-        repoId = ""
-        category = ""
-        categoryId = ""
-        mapping = ""
+        enable = true
+        repo = "AyangHuang/Ayang-Blog"
+        repoId = "R_kgDOIGC9AA"
+        category = "Announcements"
+        categoryId = "DIC_kwDOIGC9AM4CRtEZ"
+        mapping = "title"
         reactionsEnabled = "1"
         emitMetadata = "0"
-        inputPosition = "bottom" # top, bottom
+        inputPosition = "top" # top, bottom
         lightTheme = "light"
         darkTheme = "dark"
         lazyLoad = true
@@ -580,12 +641,15 @@
     themes = ["neutral", "dark"]
 
   # FixIt 0.2.12 | NEW PanguJS config
+  # 盘古之白配置
   [params.pangu]
     # For Chinese writing
-    enable = false
+    # 适用于中文写作用户
+    enable = true
 
   # FixIt 0.2.12 | NEW Watermark config
   # Detail config see https://github.com/Lruihao/watermark#readme
+  # 水印配置，详细参数见url
   [params.watermark]
     enable = false
     # watermark's text (HTML format is supported)
@@ -610,12 +674,15 @@
     fontFamily = "inherit"
 
   # FixIt 0.2.12 | NEW Busuanzi count
+  # 卜蒜子统计 网站访问人数在页脚显示
   [params.ibruce]
     enable = false
     # Enable in post meta
+    # 在文章中展示
     enablePost = false
 
   # Site verification code config for Google/Bing/Yandex/Pinterest/Baidu/360/Sogou
+  # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu/360/Sogou
   [params.verification]
     google = ""
     bing = ""
@@ -633,12 +700,14 @@
     thumbnailUrl = ""
 
   # FixIt 0.2.0 | NEW Analytics config
+  # 网站分析配置
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
       id = ""
       # whether to anonymize IP
+      # 是否匿名化用户 IP
       anonymizeIP = true
     # Fathom Analytics
     [params.analytics.fathom]
@@ -647,6 +716,7 @@
       server = ""
 
   # FixIt 0.2.7 | NEW Cookie consent config
+  # Cookie 许可配置
   [params.cookieconsent]
     enable = true
     # text strings used for Cookie consent banner
@@ -656,10 +726,15 @@
       link = ""
 
   # FixIt 0.2.7 | CHANGED CDN config for third-party library files
+  # 第三方库文件的 CDN 设置
   [params.cdn]
     # CDN data file name, disabled by default ["jsdelivr.yml", "unpkg.yml", ...]
     # located in "themes/FixIt/assets/data/cdn/" directory
     # you can store your own data files in the same path under your project: "assets/data/cdn/"
+    # CDN 数据文件名称，默认不启用 ["jsdelivr.yml", "unpkg.yml", ...]
+    # 位于 "themes/FixIt/assets/data/cdn/" 目录
+    # 可以在你的项目下相同路径存放你自己的数据文件："assets/data/cdn/"
+    # data = "unpkg.yml"
     data = ""
 
   # FixIt 0.2.8 | NEW Compatibility config
@@ -670,6 +745,7 @@
     objectFit = false
 
   # FixIt 0.2.14 | NEW GitHub banner in the top-right or top-left corner
+  # 在左上角或者右上角显示 GitHub 开源链接
   [params.githubCorner]
     enable = false
     permalink = "https://github.com/hugo-fixit/FixIt"
@@ -677,18 +753,22 @@
     position = "right" # ["left", "right"]
 
   # FixIt 0.2.14 | NEW Gravatar config
+  # Gravatar 设置
   [params.gravatar]
     # Gravatar host, default: "www.gravatar.com"
     host = "www.gravatar.com" # ["cn.gravatar.com", "gravatar.loli.net", ...]
     style = "" # ["", "mp", "identicon", "monsterid", "wavatar", "retro", "blank", "robohash"]
 
   # FixIt 0.2.16 | NEW Back to top
+  # 返回顶部
   [params.backToTop]
     enable = true
     # Scroll percent label in b2t button
-    scrollpercent = false
+    # 在 b2t 按钮中显示滚动百分比
+    scrollpercent = true
 
   # FixIt 0.2.16 | NEW Reading progress bar
+  # 阅读进度条
   [params.readingProgress]
     enable = false
     # Available values: ["left", "right"]
@@ -701,6 +781,7 @@
     height = "2px"
 
   # FixIt 0.2.15 | NEW Developer options
+  # 开发者选项
   [params.dev]
     enable = false
     # Check for updates
