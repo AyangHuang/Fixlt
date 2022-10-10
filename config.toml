@@ -58,12 +58,20 @@
     url = "/tags/"
     title = ""
     weight = 4
+  #[[menu.main]]
+  #  identifier = "friends"
+  #  pre = ""
+  #  post = ""
+  #  name = "Friends"
+  #  url = "/friends/"
+  #  title = ""
+  #  weight = 5
   [[menu.main]]
-    identifier = "friends"
+    identifier = "about"
     pre = ""
     post = ""
-    name = "Friends"
-    url = "/friends/"
+    name = "About"
+    url = "/about/"
     title = ""
     weight = 5
 # -------------------------------------------------------------------------------------
