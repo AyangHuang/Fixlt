@@ -433,7 +433,8 @@
       # FixIt 0.2.13 | NEW whether to show the edit button of the code block
       edit = true
       # the maximum number of lines of displayed code by default
-      maxShownLines = 20
+      # 最长显示多少行代码，超过此行数，则折叠显示
+      maxShownLines = 100000
     # FixIt 0.2.14 | NEW Post edit
     # 文章编辑
     [params.page.edit]
