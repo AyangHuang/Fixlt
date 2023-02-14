@@ -50,14 +50,14 @@
     url = "/categories/"
     title = ""
     weight = 3
-  [[menu.main]]
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-    weight = 4
+  # [[menu.main]]
+  #   identifier = "tags"
+  #   pre = ""
+  #   post = ""
+  #   name = "Tags"
+  #   url = "/tags/"
+  #   title = ""
+  #   weight = 4
   #[[menu.main]]
   #  identifier = "friends"
   #  pre = ""
@@ -73,7 +73,7 @@
     name = "About"
     url = "/about/"
     title = ""
-    weight = 5
+    weight = 4
 # -------------------------------------------------------------------------------------
 # Theme Core Configuration Settings
 # -------------------------------------------------------------------------------------
